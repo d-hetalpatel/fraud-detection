@@ -484,7 +484,8 @@ def categorize_fraud_advanced(df):
 st.sidebar.header("📋 Data Input Method")
 input_method = st.sidebar.radio(
     "Choose input method:",
-    ["Upload CSV File", "OCR from Invoice Image"]
+    ["Upload CSV File", "OCR from Invoice Image"],
+    key="input_method_selector"
 )
 
 st.sidebar.markdown("---")
@@ -683,4 +684,5 @@ st.markdown("""
 <div style='text-align: center; color: #666;'>
     <p>Invoice Fraud Detection System</p>
 </div>
+
 """, unsafe_allow_html=True)
