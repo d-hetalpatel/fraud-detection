@@ -15,10 +15,17 @@ from logger_config import logger
 from data_preprocessing import feature_engineering
 from model_saver import load_model_and_scaler
 
+import platform
+import shutil
+
+# Check if Tesseract is in the system path first
+if shutil.which("tesseract") is None:
+    # Only if it's NOT found (likely your local Windows machine), set the path
+    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 # Paths
 MODEL_PATH = "models/fraud_model.pkl"
 SCALER_PATH = "models/fraud_scaler.pkl"
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+#pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 st.set_page_config(page_title="Invoice Fraud Detection", layout="wide", page_icon="🚨")
 
@@ -686,3 +693,4 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
