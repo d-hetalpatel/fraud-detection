@@ -6,5 +6,4 @@ joblib
 streamlit
 pillow
 pytesseract
-opencv-python
-cv2
+opencv-python-headless
